@@ -8,8 +8,15 @@
   </head>
   <body>
     <div>
+        <% if(locals.listTitle) { %>
+            <h1>
+                <%= listTitle %>
+            </h1>
+        <% } %>
+    </div>
+    <div>
       <% if(locals.listItems) { %> 
-        <% for(let item of listItems){ %>
+        <% for(let item of listItems) { %>
             <p>
                 <%= item.title %>
             </p> 
