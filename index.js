@@ -30,18 +30,23 @@ let period_name = "Today";
 
 // Homepage.
 app.get("/", async (req, res) => {
-  const result = await db.query(
+  const result_items = await db.query(
     "SELECT items.id, items.periods_id, items.title FROM items INNER JOIN periods ON items.periods_id = periods.id WHERE periods.period_name = ($1) ORDER BY items.id ASC",
     [period_name]
   );
-  items = result.rows;
+  const result_periods = await db.query("SELECT * FROM periods");
+  items = result_items.rows;
+  const periods = result_periods.rows;
   res.render("index.ejs", {
     listTitle: period_name,
     listItems: items,
+    listPeriods: periods,
   });
 });
 
-app.post("/edit", async (req, res) => {
+app.post("/change", async (req, res) => {
+  const name = req.body.changePeriod;
+  period_name = name;
   res.redirect("/");
 });
 

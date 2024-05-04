@@ -4,6 +4,14 @@
     <h1>
       <%= listTitle %>
     </h1>
+
+    <form action="/change" method="post">
+        <% for(let period of listPeriods){ %>
+            <button type="submit" name="changePeriod" value="<%= period.period_name %>">
+                <%= period.period_name %>
+            </button>
+        <% } %>
+    </form>
   </div>
   <div class="box">
     <% for(let item of listItems){%>
