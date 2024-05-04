@@ -5,9 +5,9 @@
       <%= listTitle %>
     </h1>
 
-    <form action="/change" method="post">
+    <form action="/switch" method="post">
         <% for(let period of listPeriods){ %>
-            <button type="submit" name="changePeriod" value="<%= period.period_name %>">
+            <button type="submit" name="switchPeriod" value="<%= period.period_name %>">
                 <%= period.period_name %>
             </button>
         <% } %>

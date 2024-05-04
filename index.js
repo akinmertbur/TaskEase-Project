@@ -44,9 +44,8 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.post("/change", async (req, res) => {
-  const name = req.body.changePeriod;
-  period_name = name;
+app.post("/switch", async (req, res) => {
+  period_name = req.body.switchPeriod;
   res.redirect("/");
 });
 
