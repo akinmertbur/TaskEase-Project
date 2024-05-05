@@ -87,6 +87,21 @@ async function insertNewItem(title, periodId) {
   }
 }
 
+// Update the title of the item in the database based on its ID.
+async function updateItem(item_id, item_title) {
+  try {
+    const result = await db.query(
+      "UPDATE items SET title = ($1) WHERE id = ($2) RETURNING *;",
+      [item_title, item_id]
+    );
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error updating item in database:", error);
+    // Optionally, handle the error by retrying the operation or notifying the user.
+    return null;
+  }
+}
+
 // Route for the homepage.
 app.get("/", async (req, res) => {
   // Retrieve to-do list items associated with the current period from the database.
@@ -122,6 +137,19 @@ app.post("/add", async (req, res) => {
   const newItem = await insertNewItem(title, periodId);
 
   // Redirect to the homepage after adding the new item.
+  res.redirect("/");
+});
+
+// Route to handle editing existing items in the to-do list.
+app.post("/edit", async (req, res) => {
+  // Extract the ID and updated title of the item from the submitted form data.
+  const updatedItemId = req.body.updatedItemId;
+  const updatedItemTitle = req.body.updatedItemTitle;
+
+  // Update the title of the item based on its ID.
+  const updatedItem = await updateItem(updatedItemId, updatedItemTitle);
+
+  // Redirect to the homepage after editing the item.
   res.redirect("/");
 });
 
