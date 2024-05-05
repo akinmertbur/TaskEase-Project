@@ -129,6 +129,7 @@ app.get("/", async (req, res) => {
     listTitle: period_name,
     listItems: items,
     listPeriods: periods,
+    period_id: await getPeriodId(),
   });
 });
 

@@ -7,9 +7,14 @@
 
     <form action="/switch" method="post">
         <% for(let period of listPeriods){ %>
-            <button type="submit" name="switchPeriod" value="<%= period.period_name %>">
-                <%= period.period_name %>
-            </button>
+          <button id="tab<%=period.id%>"
+            type="submit"
+            class="tab-button"
+            onclick="toggleActive('<%= period.id %>')"
+            name="switchPeriod"
+            value="<%= period.period_name %>">
+      <%= period.period_name %>
+    </button>
         <% } %>
     </form>
   </div>
@@ -19,7 +24,6 @@
         <form action="/delete" method="post">
           <input type="checkbox" onchange="this.form.submit()" name="deleteItemId" value="<%= item.id %>">
         </form>
-
         <p id="title<%=item.id%>">
           <%= item.title %>
         </p>
@@ -48,6 +52,21 @@
       document.getElementById("edit" + id).setAttribute("hidden", true)
       document.getElementById("done" + id).removeAttribute("hidden")
       document.getElementById("input" + id).removeAttribute("hidden")
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      toggleActive('<%= period_id %>'); 
+    });
+  
+    function toggleActive(id) {
+      var buttons = document.querySelectorAll('.tab-button');
+      buttons.forEach(button => {
+          if (button.id === "tab" + id) {
+            button.classList.add('active');
+          } else {
+            button.classList.remove('active');
+          }
+      });
     }
   </script>
   <%- include('partials/footer.ejs'); -%>

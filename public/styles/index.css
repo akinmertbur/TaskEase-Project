@@ -1,6 +1,10 @@
 html {
   background-color: #e4e9fd;
-  background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(160, 199, 226, 0.8) 50%,
+    rgba(228, 233, 253, 0.8) 50%
+  );
   min-height: 1000px;
   font-family: "helvetica neue";
 }
@@ -28,7 +32,7 @@ h1 {
 }
 
 #heading {
-  background-color: #a683e3;
+  background-color: rgba(160, 199, 226, 0.8);
   text-align: center;
 }
 form.edit {
@@ -68,7 +72,7 @@ button.add {
   width: 50px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #a683e3;
+  background-color: rgba(160, 199, 226, 0.8);
   color: #fff;
   font-size: 30px;
   border-width: 0;
@@ -98,7 +102,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -3px 0 0 #a683e3;
+  box-shadow: inset 0 -3px 0 0 rgba(160, 199, 226, 0.8);
 }
 
 ::placeholder {
@@ -110,4 +114,45 @@ footer {
   flex: 0 0 auto;
   color: white;
   text-align: center;
+}
+
+/* Hover effect */
+.tab-button:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for the button */
+.tab-button {
+  background-color: #e7e7e7; /* Light background color */
+  border: 1px solid #ccc; /* Border */
+  color: #333; /* Text color */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0; /* Adjust margin */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transitions */
+  border-top-left-radius: 4px; /* Rounded corners for the first button */
+  border-top-right-radius: 4px; /* Rounded corners for the first button */
+}
+
+/* Hover effect */
+.tab-button:hover {
+  background-color: #fff; /* Darker background color on hover */
+}
+
+/* Active/clicked effect */
+.tab-button.active {
+  background-color: #fff; /* White background color when active */
+  color: #333; /* Text color when active */
+  border-bottom-color: transparent; /* Hide bottom border when active */
+}
+
+/* Active/hover effect */
+.tab-button.active:hover {
+  background-color: #fff; /* White background color when active */
+  color: #333; /* Text color when active */
+  border-bottom-color: transparent; /* Hide bottom border when active */
 }
