@@ -6,6 +6,7 @@ html {
     rgba(228, 233, 253, 0.8) 50%
   );
   font-family: "helvetica neue";
+  width: 100%;
 }
 body {
   display: flex;
@@ -166,4 +167,36 @@ footer {
   background-color: #fff; /* White background color when active */
   color: #333; /* Text color when active */
   border-bottom-color: transparent; /* Hide bottom border when active */
+}
+
+.flex-container {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.brand {
+  margin-right: 15px; /* Add margin between logo and title */
+}
+
+.brand-title {
+  font-weight: bold;
+  font-size: larger;
+  font-family: "Courier New", Courier, monospace;
+  color: #3e3e3e;
+}
+
+#brand-logo {
+  height: 40px;
+  width: 40px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.container {
+  position: absolute; /* Make the container position relative */
+  top: 25px; /* Adjust this value to move the flex-container vertically */
+  left: 40px; /* Adjust this value to move the flex-container horizontally */
+  margin: 0;
 }
