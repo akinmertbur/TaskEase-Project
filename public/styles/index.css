@@ -5,14 +5,13 @@ html {
     rgba(160, 199, 226, 0.8) 50%,
     rgba(228, 233, 253, 0.8) 50%
   );
-  min-height: 1000px;
   font-family: "helvetica neue";
 }
 body {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-  min-height: 95vh;
+  min-height: 150vh;
 }
 main {
   text-align: center;
