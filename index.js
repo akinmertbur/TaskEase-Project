@@ -102,6 +102,21 @@ async function updateItem(item_id, item_title) {
   }
 }
 
+// Delete the item from the database based on its ID.
+async function deleteItem(item_id) {
+  try {
+    const result = await db.query(
+      "DELETE FROM items WHERE id = $1 RETURNING *;",
+      [item_id]
+    );
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error deleting item from database:", error);
+    // Optionally, handle the error by retrying the operation or notifying the user
+    return null;
+  }
+}
+
 // Route for the homepage.
 app.get("/", async (req, res) => {
   // Retrieve to-do list items associated with the current period from the database.
@@ -150,6 +165,18 @@ app.post("/edit", async (req, res) => {
   const updatedItem = await updateItem(updatedItemId, updatedItemTitle);
 
   // Redirect to the homepage after editing the item.
+  res.redirect("/");
+});
+
+// Route to handle deleting items from the to-do list.
+app.post("/delete", async (req, res) => {
+  // Extract the ID of the item to be deleted from the submitted form data.
+  const deletedItemId = req.body.deleteItemId;
+
+  // Delete the item based on its ID.
+  const deleted_item = await deleteItem(deletedItemId);
+
+  // Redirect to the homepage after deleting the item.
   res.redirect("/");
 });
 
