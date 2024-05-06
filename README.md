@@ -38,19 +38,19 @@ Before running this project, ensure you have the following installed:
 
 4. Create a `.env` file in the project root directory and specify your PostgreSQL database configuration:
 
-  ```bash
-  user=your_username
-  host=your_host
-  database=your_database
-  password=your_password
-  port=your_port
-  ```
+   ```bash
+   user=your_username
+   host=your_host
+   database=your_database
+   password=your_password
+   port=your_port
+   ```
 
 5. Start the server:
    
- ```bash
- npm start
- ```
+   ```bash
+   npm start
+   ```
 
 6. Open your web browser and navigate to `http://localhost:3000` to use the application.
 
