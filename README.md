@@ -21,7 +21,7 @@ Before running this project, ensure you have the following installed:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your-username/todo-list.git
+   https://github.com/akinmertbur/TaskEase-Project.git
    ```
 
 2. Navigate to the project directory:
